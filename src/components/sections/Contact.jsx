@@ -9,22 +9,15 @@ export const Contact = () => {
     message: "",
   });
 
-  const SERVICE_ID = "service_g2p9p6r";
-  const TEMPLATE_ID = "template_hc14ojr";
-  const PUBLIC_KEY = "McbpGVQ7oHFNSL1cs";
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        // import.meta.env.VITE_SERVICE_ID,
-        // import.meta.env.VITE_TEMPLATE_ID,
-        SERVICE_ID,
-        TEMPLATE_ID,
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
         e.target,
-        PUBLIC_KEY
-        // import.meta.env.VITE_PUBLIC_KEY
+        import.meta.env.VITE_PUBLIC_KEY
       )
       .then((result) => {
         alert("Message Sent!");
@@ -39,7 +32,7 @@ export const Contact = () => {
       className="min-h-screen flex items-center justify-center py-20"
     >
       <RevealOnScroll>
-        <div className="px-4 w-150">
+        <div className="px-4 w-93 lg:w-150">
           <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
             {" "}
             Get In Touch

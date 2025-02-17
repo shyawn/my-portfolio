@@ -6,9 +6,10 @@ import { Navbar } from "./components/Navbar";
 import { MobileMenu } from "./components/MobileMenu";
 import HomePage from "./pages/HomePage";
 import Conference from "./pages/Conference";
+import Movie from "./pages/Movie";
 import { Routes, Route, useLocation } from "react-router-dom";
 
-const withouSidebarRoutes = ["/my-portfolio/conference"];
+const withouSidebarRoutes = ["conference", "movie"];
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/my-portfolio" element={<HomePage />} />
           <Route path="/my-portfolio/conference" element={<Conference />} />
+          <Route path="/my-portfolio/movie" element={<Movie />} />
         </Routes>
       </div>
     </>

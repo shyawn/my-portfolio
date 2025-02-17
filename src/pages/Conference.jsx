@@ -101,10 +101,8 @@ const Conference = () => {
         <p className="mb-10 mr-10">
           Additionally, the app enables seamless image uploads taken during the
           conference, leveraging{" "}
-          <span className="font-bold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-            Amazon S3
-          </span>{" "}
-          for efficient storage and retrieval.
+          <span className="font-bold text-blue-400">Amazon S3</span> for
+          efficient storage and retrieval.
         </p>
       </div>
     </div>

@@ -1,6 +1,12 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+const withouSidebarRoutes = ["/my-portfolio/conference"];
 
 export const Navbar = ({ menuOpen, setMenuOpen }) => {
+  const { pathname } = useLocation();
+  if (withouSidebarRoutes.some((item) => pathname.includes(item))) return null;
+
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);

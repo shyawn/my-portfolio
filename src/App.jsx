@@ -6,15 +6,23 @@ import { Navbar } from "./components/Navbar";
 import { MobileMenu } from "./components/MobileMenu";
 import HomePage from "./pages/HomePage";
 import Conference from "./pages/Conference";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
+const withouSidebarRoutes = ["/my-portfolio/conference"];
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
 
   return (
     <>
-      {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
+      {!isLoaded &&
+        withouSidebarRoutes.some((item) => pathname.includes(item)) &&
+        setIsLoaded(true)}
+      {!isLoaded &&
+        !withouSidebarRoutes.some((item) => pathname.includes(item)) && (
+          <LoadingScreen onComplete={() => setIsLoaded(true)} />
+        )}
       <div
         className={`min-h-screen transition-opacity duration-700 ${
           isLoaded ? "opacity-100" : "opacity-0"
